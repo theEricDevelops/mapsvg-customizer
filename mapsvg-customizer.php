@@ -12,7 +12,7 @@
  * Text Domain: mapsvg-customizer
  * Domain Path: /lang/
  *
- * @package WordPress
+ * @package mapsvg
  * @author Eric Baker
  * @since 1.0.0
  */
