@@ -2,18 +2,18 @@
 /*
  * Plugin Name: MapSVG Customizer
  * Version: 1.0
- * Plugin URI: http://www.hughlashbrooke.com/
- * Description: This is your starter template for your next WordPress plugin.
- * Author: Hugh Lashbrooke
- * Author URI: http://www.hughlashbrooke.com/
+ * Plugin URI: http://www.trafficlight.me/custom-wordpress-plugins
+ * Description: This plugin allows for the inclusion of a custom taxonomy within the MapSVG popover.
+ * Author: Eric Baker
+ * Author URI: http://www.ericbaker.me/
  * Requires at least: 4.0
- * Tested up to: 4.0
+ * Tested up to: 4.9.8
  *
  * Text Domain: mapsvg-customizer
  * Domain Path: /lang/
  *
  * @package WordPress
- * @author Hugh Lashbrooke
+ * @author Eric Baker
  * @since 1.0.0
  */
 

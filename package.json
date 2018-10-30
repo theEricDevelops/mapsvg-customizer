@@ -1,8 +1,8 @@
 {
-	"name": "wordpress-plugin-template",
-	"title": "WordPress Plugin Template",
+	"name": "mapsvg-customizer",
+	"title": "MapSVG Customizer",
 	"version": "1.0.0",
-	"homepage": "https://github.com/hlashbrooke/WordPress-Plugin-Template",
+	"homepage": "https://trafficlight.me/custom-wordpress-plugins",
 	"main": "Gruntfile.js",
 	"devDependencies": {
 		"grunt": "~0.4.5",
