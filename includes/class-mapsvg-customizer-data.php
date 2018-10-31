@@ -27,17 +27,26 @@ class MapSVG_Customizer_Data {
      */
     public function get_data () {
         // Setup the query
+        /*$args = array(
+            'name' =>  'hennepin-county	    ',
+        );
+        
+        $query = new WP_Query( $args );*/
+
+        //$query = get_term_by ( 'slug', 'hennepin-county', 'county');
+
         $args = array (
-            'post_type' => 'post',
             'tax_query' => array (
                 array (
-                    'taxonomy' => 'county',
+                    'taxonomy'  => 'county',
+                    'field'     =>  'slug',
+                    'terms'     =>  'hennepin-county',
                 ),
             ),
         );
-        
-        $query = new WP_Query( $args );
 
+        $query = get_posts ( $args );
+ 
         return $query;
     }
 
@@ -48,8 +57,12 @@ class MapSVG_Customizer_Data {
      * @return string JSON
      */
     public function print_data () {
-        $data = $this->get_data();
-        var_dump($data);
+        $posts = $this->get_data();
+        echo '<ul>';
+        foreach( $posts as $post ) {
+            echo '<li>' . $post->post_title . '</li>';
+        }
+        echo '</ul>';
     }
 
 }
