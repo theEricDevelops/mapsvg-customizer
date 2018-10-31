@@ -4,6 +4,7 @@ if ( ! defined('ABSPATH') ) {
     /** Set up WordPress environment */
     require_once( '../../../../wp-load.php' ); 
     // ^ That is a terrible way to do this, but I couldn't think of another way
+    require_once('class-mapsvg-customizer-article.php');
 } 
 
 class MapSVG_Customizer_Data {
@@ -40,7 +41,7 @@ class MapSVG_Customizer_Data {
                 array (
                     'taxonomy'  => 'county',
                     'field'     =>  'slug',
-                    'terms'     =>  'hennepin-county',
+                    'terms'     =>  $this->taxonomy,
                 ),
             ),
         );
@@ -58,11 +59,16 @@ class MapSVG_Customizer_Data {
      */
     public function print_data () {
         $posts = $this->get_data();
-        echo '<ul>';
+        $results = Array();
+        
         foreach( $posts as $post ) {
-            echo '<li>' . $post->post_title . '</li>';
+            $result = new MapSVG_Customizer_Article;
+            $result->title = $post->post_title;
+            $result->link = get_permalink( $post->ID );
+            array_push( $results, $result );
         }
-        echo '</ul>';
+
+        print_r($results);
     }
 
 }
