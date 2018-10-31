@@ -16,10 +16,40 @@ class MapSVG_Customizer_Data {
 	 */
     public function __construct ( $tax ) {
         $this->taxonomy = $tax;
+        $this->print_data();
     }
 
-    public function getData () {
+    /**
+     * getData function.
+     * @access  public
+     * @since   1.0.0
+     * @return  object
+     */
+    public function get_data () {
+        // Setup the query
+        $args = array (
+            'post_type' => 'post',
+            'tax_query' => array (
+                array (
+                    'taxonomy' => 'county',
+                ),
+            ),
+        );
         
+        $query = new WP_Query( $args );
+
+        return $query;
+    }
+
+    /**
+     * print_data function
+     * @access public
+     * @since 1.0.0
+     * @return string JSON
+     */
+    public function print_data () {
+        $data = $this->get_data();
+        var_dump($data);
     }
 
 }
@@ -27,7 +57,6 @@ class MapSVG_Customizer_Data {
 if( isset( $_GET ) ) {
     $t = filter_var($_GET['t'], FILTER_SANITIZE_STRING);
     $map_svg = new MapSVG_Customizer_Data( $t );
-    var_dump($map_svg);
 } else {
     print "You need to make a valid request";
 }
