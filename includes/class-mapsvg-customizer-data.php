@@ -67,8 +67,10 @@ class MapSVG_Customizer_Data {
             $result->link = get_permalink( $post->ID );
             array_push( $results, $result );
         }
-
-        print_r($results);
+        $encoded = json_encode($results);
+        
+        header('Content-Type: application/json');
+        echo $encoded;
     }
 
 }
