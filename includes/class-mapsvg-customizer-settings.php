@@ -42,16 +42,16 @@ class MapSVG_Customizer_Settings {
 		$this->base = 'wpt_';
 
 		// Initialise settings
-		add_action( 'init', array( $this, 'init_settings' ), 11 );
+		//add_action( 'init', array( $this, 'init_settings' ), 11 );
 
 		// Register plugin settings
-		add_action( 'admin_init' , array( $this, 'register_settings' ) );
+		//add_action( 'admin_init' , array( $this, 'register_settings' ) );
 
 		// Add settings page to menu
-		add_action( 'admin_menu' , array( $this, 'add_menu_item' ) );
+		//add_action( 'admin_menu' , array( $this, 'add_menu_item' ) );
 
 		// Add settings link to plugins page
-		add_filter( 'plugin_action_links_' . plugin_basename( $this->parent->file ) , array( $this, 'add_settings_link' ) );
+		//add_filter( 'plugin_action_links_' . plugin_basename( $this->parent->file ) , array( $this, 'add_settings_link' ) );
 	}
 
 	/**
@@ -66,10 +66,10 @@ class MapSVG_Customizer_Settings {
 	 * Add settings page to admin menu
 	 * @return void
 	 */
-	public function add_menu_item () {
+	/*public function add_menu_item () {
 		$page = add_options_page( __( 'Plugin Settings', 'mapsvg-customizer' ) , __( 'Plugin Settings', 'mapsvg-customizer' ) , 'manage_options' , $this->parent->_token . '_settings' ,  array( $this, 'settings_page' ) );
 		add_action( 'admin_print_styles-' . $page, array( $this, 'settings_assets' ) );
-	}
+	}*/
 
 	/**
 	 * Load settings JS & CSS
