@@ -29,3 +29,7 @@ Installing "MapSVG Customizer" can be done by using the following steps:
 = 1.0 =
 * 2018-11-01
 * Initial release
+
+== Special Thanks ==
+
+Special thanks to @hlashbrooke for the plugin template. 
