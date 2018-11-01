@@ -1,5 +1,5 @@
 var mapsvg_customizer = jQuery( document ).ready( function ( e ) {
-	e("path").on("click", function( i ) {
+	e("path").on("click touchstart", function( i ) {
         var output = "";
 
         var targetTax = i.target.id.toString().toLowerCase().replace(/[^a-z\s]+/g, '').replace(/\s+/g, '-');
