@@ -22,6 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 // Load plugin class files
 require_once( 'includes/class-mapsvg-customizer.php' );
 require_once( 'includes/class-mapsvg-customizer-settings.php' );
+require_once( 'includes/class-mapsvg-customizer-post-update.php' );
 
 // Load plugin libraries
 require_once( 'includes/lib/class-mapsvg-customizer-admin-api.php' );
