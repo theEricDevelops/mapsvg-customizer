@@ -2,7 +2,7 @@
 var jsFile = new XMLHttpRequest();
 
 // Open the JS file to do the work.
-jsFile.open("GET", "/wp-content/plugins/mapsvg-customizer/assets/js/mapsvg_js.js", true);
+jsFile.open("GET", "/wp-content/plugins/mapsvg-customizer/assets/js/mapsvg_js.min.js", true);
 
 // When the file's ready state changes,
 jsFile.onreadystatechange = function() {
