@@ -14,4 +14,6 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
 
-// Do something here if plugin is being uninstalled.
+$lookup_option = 'msvgc_lookup_method';
+delete_option($lookup_option);
+delete_site_option($lookup_option);

@@ -270,6 +270,13 @@ class MapSVG_Customizer {
 	 */
 	public function install () {
 		$this->_log_version_number();
+
+		// Set the default lookup method
+		update_option( 'msvgc_lookup_method', 'json', 'yes' );
+
+		// Run Post Update so the articles.json file exists
+		$articles = new MapSVG_Customizer_Post_Update;
+		$articles->update_json();
 	} // End install ()
 
 	/**
