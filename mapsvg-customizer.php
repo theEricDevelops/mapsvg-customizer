@@ -30,6 +30,7 @@ require_once( 'includes/lib/class-mapsvg-customizer-admin-api.php' );
 require_once( 'includes/lib/class-mapsvg-customizer-post-type.php' );
 require_once( 'includes/lib/class-mapsvg-customizer-taxonomy.php' );
 require_once( 'includes/lib/class-mapsvg-customizer-finder.php' );
+require_once( 'includes/lib/class-mapsvg-customizer-article.php' );
 
 /**
  * Returns the main instance of MapSVG_Customizer to prevent the need to use globals.

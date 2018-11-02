@@ -10,8 +10,12 @@ class MapSVG_Customizer_Finder {
      * @since 1.1.0
      * @return void
      */
-    public function __construct( $slug ) {
-        $this->terms = $slug;
+    public function __construct( $slug = '' ) {
+        if ( $slug != '' ) {
+            $this->terms = array ( $slug );
+        } else {
+            $this->terms = $this->get_counties();
+        }
     }
 
     /**
@@ -22,30 +26,37 @@ class MapSVG_Customizer_Finder {
      */
     public function find_posts () {
 
-        if ( $this->terms != null ) {
-            $args = array (
-                'tax_query' => array (
-                    array (
-                        'taxonomy'  => 'county',
-                        'field'     =>  'slug',
-                        'terms'     =>  $this->terms,
-                    ),
+        $args = array(
+            'post_status'   => 'publish',
+            'numberposts'  => '-1',
+            'tax_query' => array(
+                array(
+                    'taxonomy'         => 'county',
+                    'terms'            => array( 'becker-county', 'beltrami-county', 'blue-earth-county', 'hennepin-county', 'nicollet-county', 'ramsey-county', 'rice-county', 'saint-louis', 'washington-county' ),
+                    'field'            => 'slug',
+                    'operator'         => 'IN',
+                    'include_children' => true,
                 ),
-            );
-        } else {
-            $args = array (
-                'tax_query' => array (
-                    array (
-                        'taxonomy'  => 'county',
-                    ),
-                ),
-            );
-        }
-        
+            ),
+        );
 
         $query = get_posts ( $args );
 
         return $query;
+    }
+
+    /**
+     * get_counties function
+     * @access public
+     * @since 1.1.0
+     * @return array of counties to use in search
+     */
+    public function get_counties () {
+        $tax_list = array();
+        foreach( get_terms('county') as $county ) {
+            array_push($tax_list, $county->slug);
+        }
+        return $tax_list;
     }
 
 }

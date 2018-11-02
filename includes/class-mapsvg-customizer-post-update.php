@@ -33,12 +33,16 @@ class MapSVG_Customizer_Post_Update {
         $data = new MapSVG_Customizer_Data;
         $file = plugin_dir_path( __DIR__ ) . 'articles.json';
 
-        try {
-            file_put_contents( $file, $data);
-        } catch ( Exception $e ) {
-            print("There's a problem, here");
-            print($e);
+        if( $data ) {
+            try {
+                file_put_contents( $file, $data);
+            } catch ( Exception $e ) {
+                print("There's a problem, here");
+                print($e);
+            }
         }
+
+        return $data;
     }
 
 }

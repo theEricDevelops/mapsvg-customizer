@@ -4,7 +4,7 @@ if ( ! defined('ABSPATH') ) {
     /** Set up WordPress environment */
     require_once( '../../../../wp-load.php' ); 
     // ^ That is a terrible way to do this, but I couldn't think of a better way
-    require_once('class-mapsvg-customizer-article.php');
+    require_once( 'lib/class-mapsvg-customizer-article.php');
     require_once( 'lib/class-mapsvg-customizer-finder.php' );
 } 
 
@@ -34,22 +34,26 @@ class MapSVG_Customizer_Data {
         
         if ( count($posts) > 0 ) {
             $results = Array();
-            var_dump($posts);
             foreach( $posts as $post ) {
+                $county = wp_get_post_terms( $post->ID, 'county' );
+                $county_slug = $county[0]->slug;
+
                 $result = new MapSVG_Customizer_Article;
                 $result->title = $post->post_title;
                 $result->link = get_permalink( $post->ID );
+                $result->county = $county_slug;
                 array_push( $results, $result );
             }
         } else {
-            $resulsts = "No data found.";
+            $results = "No data found.";
         }
         $encoded = json_encode($results);
         
         //header('Content-Type: application/json');
         //echo $encoded;
 
-        return $encoded;
+        return $output;
     }
 
 }
+
