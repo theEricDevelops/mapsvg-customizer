@@ -1,12 +1,6 @@
 <?php
 
-if ( ! defined('ABSPATH') ) {
-    /** Set up WordPress environment */
-    require_once( '../../../../wp-load.php' ); 
-    // ^ That is a terrible way to do this, but I couldn't think of a better way
-    require_once( 'lib/class-mapsvg-customizer-article.php');
-    require_once( 'lib/class-mapsvg-customizer-finder.php' );
-} 
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 class MapSVG_Customizer_Data {
 
@@ -49,9 +43,6 @@ class MapSVG_Customizer_Data {
         }
         $encoded = json_encode($results);
         
-        //header('Content-Type: application/json');
-        //echo $encoded;
-
         return $encoded;
     }
 
