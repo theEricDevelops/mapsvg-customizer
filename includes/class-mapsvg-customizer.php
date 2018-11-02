@@ -109,6 +109,11 @@ class MapSVG_Customizer {
 			$this->admin = new MapSVG_Customizer_Admin_API();
 		}
 
+		// Load post update watcher to update JSON
+		if ( is_admin() ) {
+			$this->watcher = new MapSVG_Customizer_Post_Update();
+		}
+
 		// Handle localisation
 		$this->load_plugin_textdomain();
 		add_action( 'init', array( $this, 'load_localisation' ), 0 );
