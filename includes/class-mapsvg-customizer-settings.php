@@ -39,7 +39,7 @@ class MapSVG_Customizer_Settings {
 	public function __construct ( $parent ) {
 		$this->parent = $parent;
 
-		$this->base = 'wpt_';
+		$this->base = 'msvgc_';
 
 		// Initialise settings
 		add_action( 'init', array( $this, 'init_settings' ), 11 );
@@ -159,7 +159,7 @@ class MapSVG_Customizer_Settings {
 					'default'		=> 'wordpress'
 				),*/
 				array(
-					'id' 			=> 'radio_buttons',
+					'id' 			=> 'lookup_method',
 					'label'			=> __( 'Article Lookup Method', 'mapsvg-customizer' ),
 					'description'	=> __( 'Which method do you want the article lookup to use?.', 'mapsvg-customizer' ),
 					'type'			=> 'radio',
