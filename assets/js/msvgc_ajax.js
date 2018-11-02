@@ -14,7 +14,7 @@ var mapsvg_customizer = jQuery( document ).ready( function ( e ) {
             url: reqUrl,
             timeout: 5000,
             success: function(data, textStatus){
-                if( data.constructor !== Array ) {
+                if( data.constructor !== Array || data.length < 1 ) {
                     output = "There are no articles for this region.";
                     e("div.mapsvg-controller-view-content").html(output);
                 } else {
