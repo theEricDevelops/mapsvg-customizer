@@ -1,6 +1,6 @@
 <?php
 
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined('ABSPATH') ) exit;
 
 class MapSVG_Customizer_Post_Update {
 
@@ -24,24 +24,21 @@ class MapSVG_Customizer_Post_Update {
     }
 
     /**
-     * find_posts function.
-     * @access  public
-     * @since   1.0.0
-     * @return  object
+     * update_json function
+     * @access public
+     * @since 1.1.0
+     * @return string JSON
      */
-    public function find_posts () {
+    public function update_json() {
+        $data = new MapSVG_Customizer_Data;
+        $file = plugin_dir_path( __FILE__ ) . 'articles.json';
 
-        $args = array (
-            'tax_query' => array (
-                array (
-                    'taxonomy'  => 'county',
-                ),
-            ),
-        );
-
-        $query = get_posts ( $args );
- 
-        return $query;
+        try {
+            file_put_contents( $file, $data);
+        } catch ( Exception $e ) {
+            print("There's a problem, here");
+            print($e);
+        }
     }
 
 }
