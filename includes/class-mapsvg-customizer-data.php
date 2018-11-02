@@ -19,7 +19,6 @@ class MapSVG_Customizer_Data {
 	 */
     public function __construct ( $tax = null ) {
         $this->taxonomy = $tax;
-        $this->export_data();
     }
 
     /**
@@ -36,12 +35,11 @@ class MapSVG_Customizer_Data {
             $results = Array();
             foreach( $posts as $post ) {
                 $county = wp_get_post_terms( $post->ID, 'county' );
-                $county_slug = $county[0]->slug;
 
                 $result = new MapSVG_Customizer_Article;
                 $result->title = $post->post_title;
                 $result->link = get_permalink( $post->ID );
-                $result->county = $county_slug;
+                $result->county = $county[0]->slug;
                 array_push( $results, $result );
             }
         } else {
@@ -52,7 +50,7 @@ class MapSVG_Customizer_Data {
         //header('Content-Type: application/json');
         //echo $encoded;
 
-        return $output;
+        return $encoded;
     }
 
 }

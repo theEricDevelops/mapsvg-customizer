@@ -30,17 +30,12 @@ class MapSVG_Customizer_Post_Update {
      * @return string JSON
      */
     public function update_json() {
-        $data = new MapSVG_Customizer_Data;
+        $data_obj = new MapSVG_Customizer_Data;
+        $data = $data_obj->export_data();
+
         $file = plugin_dir_path( __DIR__ ) . 'articles.json';
 
-        if( $data ) {
-            try {
-                file_put_contents( $file, $data);
-            } catch ( Exception $e ) {
-                print("There's a problem, here");
-                print($e);
-            }
-        }
+        $data ? file_put_contents( $file, $data ) : false;
 
         return $data;
     }
