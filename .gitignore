@@ -1,3 +1,4 @@
 /.vscode
 /node*
 package-lock*
+articles.json

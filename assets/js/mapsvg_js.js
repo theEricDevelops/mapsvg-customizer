@@ -5,7 +5,7 @@ var mapsvg_customizer = jQuery( document ).ready( function ( e ) {
         var targetTax = i.target.id.toString().toLowerCase().replace(/[^a-z\s]+/g, '').replace(/\s+/g, '-');
         targetTax = targetTax + '-county';
 
-        var reqBaseUrl = '/wp-content/plugins/mapsvg-customizer/includes/class-mapsvg-customizer-data.php';
+        var reqBaseUrl = '/wp-content/plugins/mapsvg-customizer/includes/class-mapsvg-customizer-api.php';
         var reqUrl = reqBaseUrl + '?t=' + targetTax;
 
         var request = e.ajax({
@@ -14,7 +14,7 @@ var mapsvg_customizer = jQuery( document ).ready( function ( e ) {
             url: reqUrl,
             timeout: 5000,
             success: function(data, textStatus){
-                if(data === undefined || data.length == 0){
+                if( data.constructor !== Array ) {
                     output = "There are no articles for this region.";
                     e("div.mapsvg-controller-view-content").html(output);
                 } else {

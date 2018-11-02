@@ -39,19 +39,19 @@ class MapSVG_Customizer_Settings {
 	public function __construct ( $parent ) {
 		$this->parent = $parent;
 
-		$this->base = 'wpt_';
+		$this->base = 'msvgc_';
 
 		// Initialise settings
-		//add_action( 'init', array( $this, 'init_settings' ), 11 );
+		add_action( 'init', array( $this, 'init_settings' ), 11 );
 
 		// Register plugin settings
-		//add_action( 'admin_init' , array( $this, 'register_settings' ) );
+		add_action( 'admin_init' , array( $this, 'register_settings' ) );
 
 		// Add settings page to menu
-		//add_action( 'admin_menu' , array( $this, 'add_menu_item' ) );
+		add_action( 'admin_menu' , array( $this, 'add_menu_item' ) );
 
 		// Add settings link to plugins page
-		//add_filter( 'plugin_action_links_' . plugin_basename( $this->parent->file ) , array( $this, 'add_settings_link' ) );
+		add_filter( 'plugin_action_links_' . plugin_basename( $this->parent->file ) , array( $this, 'add_settings_link' ) );
 	}
 
 	/**
@@ -66,10 +66,10 @@ class MapSVG_Customizer_Settings {
 	 * Add settings page to admin menu
 	 * @return void
 	 */
-	/*public function add_menu_item () {
-		$page = add_options_page( __( 'Plugin Settings', 'mapsvg-customizer' ) , __( 'Plugin Settings', 'mapsvg-customizer' ) , 'manage_options' , $this->parent->_token . '_settings' ,  array( $this, 'settings_page' ) );
+	public function add_menu_item () {
+		$page = add_options_page( __( 'MapSVG Customizer Settings', 'mapsvg-customizer' ) , __( 'MSVG Custom Settings', 'mapsvg-customizer' ) , 'manage_options' , $this->parent->_token . '_settings' ,  array( $this, 'settings_page' ) );
 		add_action( 'admin_print_styles-' . $page, array( $this, 'settings_assets' ) );
-	}*/
+	}
 
 	/**
 	 * Load settings JS & CSS
@@ -108,10 +108,10 @@ class MapSVG_Customizer_Settings {
 	private function settings_fields () {
 
 		$settings['standard'] = array(
-			'title'					=> __( 'Standard', 'mapsvg-customizer' ),
-			'description'			=> __( 'These are fairly standard form input fields.', 'mapsvg-customizer' ),
+			//'title'					=> __( 'Standard', 'mapsvg-customizer' ),
+			//'description'			=> __( 'These are fairly standard form input fields.', 'mapsvg-customizer' ),
 			'fields'				=> array(
-				array(
+				/*array(
 					'id' 			=> 'text_field',
 					'label'			=> __( 'Some Text' , 'mapsvg-customizer' ),
 					'description'	=> __( 'This is a standard text field.', 'mapsvg-customizer' ),
@@ -157,27 +157,27 @@ class MapSVG_Customizer_Settings {
 					'type'			=> 'select',
 					'options'		=> array( 'drupal' => 'Drupal', 'joomla' => 'Joomla', 'wordpress' => 'WordPress' ),
 					'default'		=> 'wordpress'
-				),
+				),*/
 				array(
-					'id' 			=> 'radio_buttons',
-					'label'			=> __( 'Some Options', 'mapsvg-customizer' ),
-					'description'	=> __( 'A standard set of radio buttons.', 'mapsvg-customizer' ),
+					'id' 			=> 'lookup_method',
+					'label'			=> __( 'Article Lookup Method', 'mapsvg-customizer' ),
+					'description'	=> __( 'Which method do you want the article lookup to use?.', 'mapsvg-customizer' ),
 					'type'			=> 'radio',
-					'options'		=> array( 'superman' => 'Superman', 'batman' => 'Batman', 'ironman' => 'Iron Man' ),
-					'default'		=> 'batman'
+					'options'		=> array( 'ajax' => 'AJAX Call', 'json' => 'JSON File' ),
+					'default'		=> 'json'
 				),
-				array(
+				/*array(
 					'id' 			=> 'multiple_checkboxes',
 					'label'			=> __( 'Some Items', 'mapsvg-customizer' ),
 					'description'	=> __( 'You can select multiple items and they will be stored as an array.', 'mapsvg-customizer' ),
 					'type'			=> 'checkbox_multi',
 					'options'		=> array( 'square' => 'Square', 'circle' => 'Circle', 'rectangle' => 'Rectangle', 'triangle' => 'Triangle' ),
 					'default'		=> array( 'circle', 'triangle' )
-				)
+				)*/
 			)
 		);
 
-		$settings['extra'] = array(
+		/*$settings['extra'] = array(
 			'title'					=> __( 'Extra', 'mapsvg-customizer' ),
 			'description'			=> __( 'These are some extra input fields that maybe aren\'t as common as the others.', 'mapsvg-customizer' ),
 			'fields'				=> array(
@@ -213,7 +213,7 @@ class MapSVG_Customizer_Settings {
 					'default'		=> array( 'linux' )
 				)
 			)
-		);
+		);*/
 
 		$settings = apply_filters( $this->parent->_token . '_settings_fields', $settings );
 
