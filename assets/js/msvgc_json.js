@@ -21,7 +21,6 @@ var mapsvgc_json = jQuery( document ).ready( function ( e ) {
             articles.forEach(function(val) {
                 if(val.county == targetTax) {
                     var href = '<a href="' + val.link + '" title="' + val.title + '">' + val.title + '</a>';
-                    console.log(href);
                     links.push(href);
                 }
             });
