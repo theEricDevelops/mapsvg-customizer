@@ -29,7 +29,7 @@ class MapSVG_Customizer_API {
      * @return string JSON
      */
     public function get_json() {
-        $data_obj = new MapSVG_Customizer_Data;
+        $data_obj = new MapSVG_Customizer_Data( $this->county );
         $data = $data_obj->export_data();
 
         header('Content-Type: application/json');
