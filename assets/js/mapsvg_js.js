@@ -5,7 +5,7 @@ var mapsvg_customizer = jQuery( document ).ready( function ( e ) {
         var targetTax = i.target.id.toString().toLowerCase().replace(/[^a-z\s]+/g, '').replace(/\s+/g, '-');
         targetTax = targetTax + '-county';
 
-        var reqBaseUrl = '/wp-content/plugins/mapsvg-customizer/includes/class-mapsvg-customizer-data.php';
+        var reqBaseUrl = '/wp-content/plugins/mapsvg-customizer/includes/class-mapsvg-customizer-api.php';
         var reqUrl = reqBaseUrl + '?t=' + targetTax;
 
         var request = e.ajax({
