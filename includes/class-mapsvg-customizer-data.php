@@ -33,14 +33,16 @@ class MapSVG_Customizer_Data {
         
         if ( count($posts) > 0 ) {
             $results = Array();
+            $i = 1;
             foreach( $posts as $post ) {
                 $county = wp_get_post_terms( $post->ID, 'county' );
 
-                $result = new MapSVG_Customizer_Article;
+                $result = new MapSVG_Customizer_Article( $i );
                 $result->title = $post->post_title;
                 $result->link = get_permalink( $post->ID );
                 $result->county = $county[0]->slug;
                 array_push( $results, $result );
+                $i++;
             }
         } else {
             $results = "No data found.";

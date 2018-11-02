@@ -32,7 +32,7 @@ class MapSVG_Customizer_Finder {
             'tax_query' => array(
                 array(
                     'taxonomy'         => 'county',
-                    'terms'            => array( 'becker-county', 'beltrami-county', 'blue-earth-county', 'hennepin-county', 'nicollet-county', 'ramsey-county', 'rice-county', 'saint-louis', 'washington-county' ),
+                    'terms'            => $this->terms,
                     'field'            => 'slug',
                     'operator'         => 'IN',
                     'include_children' => true,

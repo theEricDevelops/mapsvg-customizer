@@ -19,6 +19,7 @@ class MapSVG_Customizer_Post_Update {
      * @return void
      */
     public function __construct( ) {
+        add_action( 'publish_post', array( $this, 'update_json' ), 10, 1 );
         add_action( 'save_post', array( $this, 'update_json' ), 10, 1 );
         add_action( 'after_delete_post', array( $this, 'update_json' ), 10, 1);
     }
