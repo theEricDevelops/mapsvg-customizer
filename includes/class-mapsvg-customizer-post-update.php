@@ -31,7 +31,7 @@ class MapSVG_Customizer_Post_Update {
      */
     public function update_json() {
         $data = new MapSVG_Customizer_Data;
-        $file = plugin_dir_path( __FILE__ ) . 'articles.json';
+        $file = plugin_dir_path( __DIR__ ) . 'articles.json';
 
         try {
             file_put_contents( $file, $data);

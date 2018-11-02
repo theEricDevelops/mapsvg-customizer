@@ -17,7 +17,7 @@ class MapSVG_Customizer_Data {
 	 * @return  void
      * @param   string $tax The taxonomy used to search for data.
 	 */
-    public function __construct ( $tax ) {
+    public function __construct ( $tax = null ) {
         $this->taxonomy = $tax;
         $this->export_data();
     }
