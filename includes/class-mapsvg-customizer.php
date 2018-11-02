@@ -175,7 +175,8 @@ class MapSVG_Customizer {
 			wp_register_script( $this->_token . '-ajax', esc_url( $this->assets_url ) . 'js/ajax' . $this->script_suffix . '.js', array( 'jquery' ), $this->_version );
 			wp_enqueue_script( $this->_token . '-ajax' );
 		} else {
-
+			wp_register_script( $this->_token . '-json', esc_url( $this->assets_url ) . 'js/json' . $this->script_suffix . '.js', array( 'jquery' ), $this->_version );
+			wp_enqueue_script( $this->_token . '-json' );
 		}
 	} // End enqueue_scripts ()
 
