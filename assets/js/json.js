@@ -26,3 +26,8 @@ jsFile.onreadystatechange = function() {
     }
   }
   jsFile.send(null);
+
+jQuery( document ).ready( function ( e ) {
+  var msvgScript = e("script:contains(mapsvg_options)").text().split(';');
+  var pattern = /\{.*\}/g;
+});
