@@ -4,3 +4,5 @@ package-lock*
 articles.json
 mapsvg-customizer.zip
 .DS_Store
+composer.lock
+/vendor*
