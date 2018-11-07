@@ -39,6 +39,6 @@ var mapsvgc_json = jQuery( document ).ready( function ( e ) {
             output += '</ul>';
             e("div.mapsvg-controller-view-content").html(output);
         } }
-        setTimeout( updateText, 200 );
+        setTimeout( updateText, 300 );
     })
 });
