@@ -11,7 +11,7 @@ var mapsvgc_json = jQuery( document ).ready( function ( e ) {
     jsonFile.send(null);
 
 	e("path").on("click touchstart", function( i ) {
-        var output = "";
+        function updateText () { var output = "";
 
         var targetTax = i.target.id.toString().toLowerCase().replace(/[^a-z\s]+/g, '').replace(/\s+/g, '-');
         targetTax = targetTax + '-county';
@@ -38,6 +38,7 @@ var mapsvgc_json = jQuery( document ).ready( function ( e ) {
             });
             output += '</ul>';
             e("div.mapsvg-controller-view-content").html(output);
-        }
+        } }
+        setTimeout( updateText, 500 );
     })
 });
