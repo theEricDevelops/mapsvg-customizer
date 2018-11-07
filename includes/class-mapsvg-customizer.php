@@ -171,13 +171,17 @@ class MapSVG_Customizer {
 	 * @return  void
 	 */
 	public function enqueue_scripts () {
-		if( get_option( 'msvgc_lookup_method' ) == 'ajax' ) {
+		/*if( get_option( 'msvgc_lookup_method' ) == 'ajax' ) {
 			wp_register_script( $this->_token . '-ajax', esc_url( $this->assets_url ) . 'js/ajax' . $this->script_suffix . '.js', array( 'jquery' ), $this->_version );
 			wp_enqueue_script( $this->_token . '-ajax' );
 		} else {
 			wp_register_script( $this->_token . '-json', esc_url( $this->assets_url ) . 'js/json' . $this->script_suffix . '.js', array( 'jquery' ), $this->_version );
 			wp_enqueue_script( $this->_token . '-json' );
-		}
+		}*/
+		wp_register_script( $this->_token . '-frontend', esc_url( $this->assets_url ) . 'js/frontend' . $this->script_suffix . '.js', array( 'jquery' ), $this->_version );
+		wp_enqueue_script( $this->_token . '-frontend' );
+		wp_register_script( $this->_token . '-modernizr', esc_url( $this->assets_url ) . 'js/modernizr-custom' . '.js', array( 'jquery' ), $this->_version );
+		wp_enqueue_script( $this->_token . '-modernizr' );
 	} // End enqueue_scripts ()
 
 	/**
