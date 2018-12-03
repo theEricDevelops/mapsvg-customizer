@@ -34,6 +34,7 @@ class MapSVG_Customizer_Data {
                 $result = new MapSVG_Customizer_Article( $i );
                 $result->title = $post->post_title;
                 $result->link = get_permalink( $post->ID );
+                $result->county_id = $county[0]->term_id;
                 $result->county = $county[0]->slug;
                 array_push( $results, $result );
                 $i++;

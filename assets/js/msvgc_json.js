@@ -18,12 +18,18 @@ var mapsvgc_json = jQuery( document ).ready( function ( e ) {
 
         function getArticleLinks() {
             var links = Array();
+            var countyID = '';
             articles.forEach(function(val) {
                 if(val.county == targetTax) {
                     var href = '<a href="' + val.link + '" title="' + val.title + '">' + val.title + '</a>';
+                    countyID = val.county_id;
                     links.push(href);
                 }
             });
+            if(countyID != '') {
+                var countyLink = '<a href="/?s=&taxonomies=ws-county&ws-county=' + countyID + '"> See all authors in this county.</a>';
+                links.push(countyLink);
+            }
             return links;
         }
 

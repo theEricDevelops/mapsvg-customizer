@@ -96,6 +96,9 @@ class MapSVG_Customizer {
 
 		register_activation_hook( $this->file, array( $this, 'install' ) );
 
+		// Add filter for adding counties to REST
+		//add_filter( 'register_taxonomy_args', array( $this, 'add_rest_to_counties' ), 10, 2 );
+
 		// Load frontend JS & CSS
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ), 10 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ), 10 );
@@ -151,6 +154,24 @@ class MapSVG_Customizer {
 		$taxonomy = new MapSVG_Customizer_Taxonomy( $taxonomy, $plural, $single, $post_types, $taxonomy_args );
 
 		return $taxonomy;
+	}
+
+	/**
+	 * Adds REST capability to County Taxonomy
+	 * @param array		$args			Taxonomy Arguments
+	 * @param string 	$taxonomy_name	Taxonomy Names
+	 * @return array 					Taxonomy array
+	 */
+	public function add_rest_to_counties( $args, $taxonomy_name ) {
+		if ( 'county' === $taxonomy_name ) {
+			$args['show_in_rest'] = true;
+	 
+			// Optionally customize the rest_base or rest_controller_class
+			$args['rest_base']             = 'county';
+			$args['rest_controller_class'] = 'WP_REST_Terms_Controller';
+		}
+	 
+		return $args;
 	}
 
 	/**
