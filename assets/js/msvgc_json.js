@@ -29,7 +29,7 @@ var mapsvgc_json = jQuery( document ).ready( function ( e ) {
 
         var articleLinks = getArticleLinks();
         if( articleLinks.length == 0 ) { 
-            output = "There are no articles for this region.";
+            output = "There are currently no authors listed for this county.";
             e("div.mapsvg-controller-view-content").html(output);
         } else {
             output = '<ul class="county-article-list">';
